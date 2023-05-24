@@ -4,7 +4,7 @@ class Cartas(object):
     def __init__(self, valor, naipe):
         self.valor = valor
         self.naipe = naipe
-        #self.showing = True
+        self.showing = True
         
     def __repr__(self): # representação das cartas
         nome_valor = ""
@@ -59,7 +59,10 @@ class Baralho(list):
         random.shuffle(self)
         print("baralho embaralhado :)")
 
-    def distribuir(self, location):
-        location.baralho.append(self.pop(0))
+        def deal(self, location, times=1):
+            for i in range(times):
+                location.cards.append(self.pop(0))
+
+
 
 deck = Baralho()
