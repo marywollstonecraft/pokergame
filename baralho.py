@@ -51,13 +51,15 @@ class Baralho(list):
         super().__init__()
         naipes = list(range(4))
         valores = list(range(13))
-        [[self.append(Cartas(i, j)) for j in naipes] for i in valores]
+        for valor in valores:
+            for naipe in naipes:
+                self.append(Cartas(valor, naipe))
         
     def shuffle(self):
         random.shuffle(self)
         print("baralho embaralhado :)")
 
-    def distribuir(self):
-        print(self.pop(0))
+    def distribuir(self, location):
+        location.baralho.append(self.pop(0))
 
 deck = Baralho()
